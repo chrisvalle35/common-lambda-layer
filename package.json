@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "scripts": {
     "copy": "cp -r node_modules nodejs",
-    "deploy:prod": "serverless deploy --stage prod",
-    "deploy:test": "serverless deploy",
+    "deploy:quick:prod": "serverless deploy --stage prod",
+    "deploy:quick:test": "serverless deploy",
+    "deploy:test": "npm install && npm run copy && npm run zip && npm run deploy:test",
+    "deploy:prod": "npm install && npm run copy && npm run zip && npm run deploy:prod",
     "zip": "zip -r nodejs.zip nodejs"
   },
-  "author": "Chris Valle",
+  "author": "author",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0"
