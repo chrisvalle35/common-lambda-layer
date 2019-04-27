@@ -1,0 +1,22 @@
+# serverless.yml
+service: common-layer
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  timeout: 10 #Default Lambda timeout
+  stage: ${opt:stage, 'test'}
+  region: us-east-1
+  environment: 
+    environment: ${opt:stage, self:environment.defaultStage}
+    defaultStage: test
+    currentStage: ${opt:stage, self:custom.defaultStage}
+
+layers:
+  common:
+    name: common-lambda-layer-${self:provider.stage} # optional, Deployed Lambda layer name
+    description: A common lambda layer for node dependencies # optional, Description to publish to AWS
+    compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
+      - nodejs8.10
+    package:
+      artifact: nodejs.zip

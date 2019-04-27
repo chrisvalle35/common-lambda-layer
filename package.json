@@ -1,0 +1,15 @@
+{
+  "name": "common-lambda-layer",
+  "version": "1.0.0",
+  "scripts": {
+    "copy": "cp -r node_modules nodejs",
+    "deploy:prod": "serverless deploy --stage prod",
+    "deploy:test": "serverless deploy",
+    "zip": "zip -r nodejs.zip nodejs"
+  },
+  "author": "Chris Valle",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
