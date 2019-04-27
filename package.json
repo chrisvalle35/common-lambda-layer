@@ -5,8 +5,8 @@
     "copy": "cp -r node_modules nodejs",
     "deploy:quick:prod": "serverless deploy --stage prod",
     "deploy:quick:test": "serverless deploy",
-    "deploy:test": "npm install && npm run copy && npm run zip && npm run deploy:test",
-    "deploy:prod": "npm install && npm run copy && npm run zip && npm run deploy:prod",
+    "deploy:test": "npm install && npm run copy && npm run zip && npm run deploy:quick:test",
+    "deploy:prod": "npm install && npm run copy && npm run zip && npm run deploy:quick:prod",
     "zip": "zip -r nodejs.zip nodejs"
   },
   "author": "author",
