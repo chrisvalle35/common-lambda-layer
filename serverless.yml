@@ -3,7 +3,7 @@ service: common-layer
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs10.x
   timeout: 10 #Default Lambda timeout
   stage: ${opt:stage, 'test'}
   region: us-east-1
@@ -17,6 +17,6 @@ layers:
     name: common-lambda-layer-${self:provider.stage} # optional, Deployed Lambda layer name
     description: A common lambda layer for node dependencies # optional, Description to publish to AWS
     compatibleRuntimes: # optional, a list of runtimes this layer is compatible with
-      - nodejs8.10
+      - nodejs10.x
     package:
       artifact: nodejs.zip

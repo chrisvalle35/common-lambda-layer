@@ -5,8 +5,8 @@
     "copy": "cp -r node_modules nodejs",
     "deploy:quick:prod": "serverless deploy --stage prod",
     "deploy:quick:test": "serverless deploy",
-    "deploy:test": "npm install --production && npm run copy && npm run zip && npm run deploy:quick:test",
-    "deploy:prod": "npm install --production && npm run copy && npm run zip && npm run deploy:quick:prod",
+    "deploy:test": "serverless remove && npm install --production && npm run copy && npm run zip && npm run deploy:quick:test",
+    "deploy:prod": "serverless remove --stage prod && npm install --production && npm run copy && npm run zip && npm run deploy:quick:prod",
     "zip": "zip -r nodejs.zip nodejs"
   },
   "author": "author",
@@ -16,6 +16,6 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
-    "puppeteer": "^1.18.1"
+    "request": "^2.88.0"
   }
 }
